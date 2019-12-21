@@ -1,0 +1,195 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>QuoteShower</title>
+</head>
+<style>
+.logged-in, .logged-out
+{
+  display: none;
+}
+</style>
+<body class="grey lighten-3">
+
+  <!-- NAVBAR -->
+  <nav class="z-depth-0 grey lighten-4">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">
+        <a href="#!" class="brand-logo grey-text"><i class="material-icons yellow-text">brightness_low</i>Quotes</a>
+      </a> 
+      <a href="" class="sidenav-trigger" data-target="mobile-menu">
+        <i class="material-icons grey-text">menu</i>
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger " data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="admin">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Quote</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </span>
+      </ul>
+      <ul class="sidenav grey lighten-2" id="mobile-menu">
+        <li class="logged-in" ><a href="#" class="black-text modal-trigger" data-target="modal-account">Account</a></li>
+        <li class="logged-in"><a href="#" class="black-text" id="logout2">Logout</a></li>
+        <li class="admin" ><a href="#" class="black-text modal-trigger" data-target="modal-create">Create Quote</a></li>
+        <li class="logged-out" ><a href="#" class="black-text modal-trigger" data-target="modal-login">Login</a></liclass="logged-in">
+        <li class="logged-out" ><a href="#" class="black-text modal-trigger" data-target="modal-signup">Signup</a></li>
+    </ul>
+    </div>
+  </nav>
+<!-- admin action -->
+
+<form class="center-align admin-actions admin" style="margin:40px auto;max-width:300px;display: none;" action="">
+  <input type="email" placeholder="enter email for admin" id="admin-email" required/>
+  <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+</form>
+
+
+<!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="Text" id="signup-name" required />
+          <label for="signup-name">Your Name</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <p class="error red-text center"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <p class="error red-text center"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Quote</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Author's name</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Quote Content</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GUIDE LIST -->
+  <div class="container" style="margin-top:40px">
+    <ul class="collapsible z-depth-0 guides" style="border: none;">
+      <!-- <li>
+        <div class="collapsible-header grey lighten-4">Title</div>
+        <div class="collapsible-body white">My name is nishant</div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Title</div>
+        <div class="collapsible-body white">My name is nishant</div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Title</div>
+        <div class="collapsible-body white">My name is nishant</div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Title</div>
+        <div class="collapsible-body white">My name is nishant</div>
+      </li>
+      <li>
+        <div class="collapsible-header grey lighten-4">Title</div>
+        <div class="collapsible-body white">My name is nishant</div>
+      </li> -->
+    </ul>
+  </div>
+  
+  <!-- Compiled and minified JavaScript -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDavjTLrCLiBPoHZriK-rmroMs0984_B2A",
+    authDomain: "websitequote-91f42.firebaseapp.com",
+    databaseURL: "https://websitequote-91f42.firebaseio.com",
+    projectId: "websitequote-91f42",
+    storageBucket: "websitequote-91f42.appspot.com",
+    messagingSenderId: "386320156688",
+    appId: "1:386320156688:web:11b1a0a06ed1315bbde295"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth=firebase.auth();
+  const db=firebase.firestore();
+  const functions=firebase.functions();
+  //update firestore settings
+  db.settings({timestampsInSnapshots:true});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
+    </script>
+</body>
+</html>
