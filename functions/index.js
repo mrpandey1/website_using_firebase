@@ -24,4 +24,5 @@ admin.initializeApp();
         {
             return err;
         });
+        return null;
  });

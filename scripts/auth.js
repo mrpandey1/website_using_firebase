@@ -32,7 +32,7 @@ auth.onAuthStateChanged(user=>
         }
         else
         {
-            setupUi(null);
+            setupUi();
             setupGuides([]);
         }
     });

@@ -11,8 +11,9 @@ const setupUi=(user)=>
     console.log(user.admin);
     if(user.admin)
     {
-      adminItems.forEach(item=>item.style.display='block');
+      adminItems.forEach(items=>items.style.display='block');
     }
+    
     db.collection('users').doc(user.uid).get().then(doc=>{
       const html=`
       <div>Logged in as ${user.email}</div>
@@ -26,8 +27,8 @@ const setupUi=(user)=>
   }
   else
   {
-    adminItems.forEach(item=>item.style.display='none');
-  accountDetails.innerHTML='';
+    adminItems.forEach(items=>items.style.display='none');
+    accountDetails.innerHTML='';
     logoutLinks.forEach(items=>items.style.display='block');
     loginLinks.forEach(items=>items.style.display='none');
   }
