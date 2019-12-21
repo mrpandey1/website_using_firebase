@@ -20,15 +20,14 @@ auth.onAuthStateChanged(user=>
                 {
                     user.admin=idTokenResult.claims.admin; 
                     setupUi(user);
+                db.collection('quotes').onSnapshot(snapshot=>
+                {
+              setupGuides(snapshot.docs);
+                },err=>
+                {
+                    console.log(err.message)
                 });
-         //firestore reference
-    db.collection('quotes').onSnapshot(snapshot=>
-    {
-        setupGuides(snapshot.docs);
-    },err=>
-        {
-            console.log(err.message)
-        });
+                  });
         }
         else
         {
